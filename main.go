@@ -15,7 +15,7 @@ var server = controllers.Server{}
 func init() {
 	// loads values from .env into the system
 	if err := godotenv.Load(); err != nil {
-		log.Print("sad .env file found")
+		log.Print(".env file found")
 	}
 }
 
@@ -33,6 +33,6 @@ func main() {
 
 	seeders.Load(server.DB)
 
-	server.Run(":8080")
+	server.Run(":4545")
 
 }
