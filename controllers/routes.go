@@ -21,7 +21,7 @@ func (s *Server) InitializeRoutes() {
 
 	//Finance routes
 	s.Router.HandleFunc("/finance", middlewares.SetMiddlewareJSON(s.CreateFinance)).Methods("POST")
-	s.Router.HandleFunc("/finance", middlewares.SetMiddlewareJSON(s.GetFinance)).Methods("GET")
+	s.Router.HandleFunc("/finance", middlewares.SetMiddlewareJSON(s.GetFinances)).Methods("GET")
 	// s.Router.HandleFunc("/posts/{id}", middlewares.SetMiddlewareJSON(s.GetPost)).Methods("GET")
 	// s.Router.HandleFunc("/posts/{id}", middlewares.SetMiddlewareJSON(middlewares.SetMiddlewareAuthentication(s.UpdatePost))).Methods("PUT")
 	// s.Router.HandleFunc("/posts/{id}", middlewares.SetMiddlewareAuthentication(s.DeletePost)).Methods("DELETE")
