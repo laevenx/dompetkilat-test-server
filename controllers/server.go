@@ -9,6 +9,7 @@ import (
 	"github.com/jinzhu/gorm"
 
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"github.com/rs/cors"
 
 	"github.com/laevenx/golang-crud-sql/models"
 )
@@ -41,6 +42,15 @@ func (server *Server) Initialize(Dbdriver string, DbUser string, DbPassword stri
 }
 
 func (server *Server) Run(addr string) {
-	fmt.Println("Listening to port 8080")
-	log.Fatal(http.ListenAndServe(addr, server.Router))
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:8080", "http://localhost:4545", "*"},
+		AllowedMethods:   []string{http.MethodGet, http.MethodPost, http.MethodDelete, http.MethodOptions, http.MethodPut},
+		AllowedHeaders:   []string{"*"},
+		AllowCredentials: true,
+	})
+
+	handler := c.Handler(server.Router)
+
+	fmt.Println("Listening to port 4545")
+	log.Fatal(http.ListenAndServe(addr, handler))
 }
