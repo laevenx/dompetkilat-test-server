@@ -6,8 +6,8 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
-	"github.com/laevenx/golang-crud-sql/controllers"
-	"github.com/laevenx/golang-crud-sql/seeders"
+	"github.com/laevenx/dompetkilat-test-server/controllers"
+	"github.com/laevenx/dompetkilat-test-server/seeders"
 )
 
 var server = controllers.Server{}

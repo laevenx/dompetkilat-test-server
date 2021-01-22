@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/jinzhu/gorm"
-	"github.com/laevenx/golang-crud-sql/models"
+	"github.com/laevenx/dompetkilat-test-server/models"
 )
 
 var users = []models.User{

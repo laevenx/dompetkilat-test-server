@@ -9,10 +9,10 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/laevenx/golang-crud-sql/auth"
-	"github.com/laevenx/golang-crud-sql/models"
-	"github.com/laevenx/golang-crud-sql/responses"
-	"github.com/laevenx/golang-crud-sql/utils"
+	"github.com/laevenx/dompetkilat-test-server/auth"
+	"github.com/laevenx/dompetkilat-test-server/models"
+	"github.com/laevenx/dompetkilat-test-server/responses"
+	"github.com/laevenx/dompetkilat-test-server/utils"
 )
 
 func (server *Server) CreateReksadana(w http.ResponseWriter, r *http.Request) {
