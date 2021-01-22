@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
@@ -35,6 +36,11 @@ func (server *Server) Initialize(Dbdriver string, DbUser string, DbPassword stri
 	}
 
 	server.DB.Debug().AutoMigrate(&models.User{}, &models.Finance{}, &models.Sbn{}, &models.Reksadana{}, &models.ConventionalInvoice{}, &models.ConventionalOsf{}, &models.ProductiveInvoice{}) //database migration
+
+	server.DB.DB().SetMaxIdleConns(0)
+	server.DB.DB().SetMaxOpenConns(0)
+
+	server.DB.DB().SetConnMaxLifetime(time.Second * 10)
 
 	server.Router = mux.NewRouter()
 
