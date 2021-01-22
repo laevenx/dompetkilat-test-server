@@ -43,7 +43,9 @@ func (server *Server) Initialize(Dbdriver string, DbUser string, DbPassword stri
 
 func (server *Server) Run(addr string) {
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:8080", "http://localhost:4545"},
+		AllowedOrigins:   []string{"http://localhost:8080", "http://localhost:4545", "*"},
+		AllowedMethods:   []string{http.MethodGet, http.MethodPost, http.MethodDelete, http.MethodOptions, http.MethodPut},
+		AllowedHeaders:   []string{"*"},
 		AllowCredentials: true,
 	})
 
