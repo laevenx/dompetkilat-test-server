@@ -12,7 +12,7 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/rs/cors"
 
-	"github.com/laevenx/golang-crud-sql/models"
+	"github.com/laevenx/dompetkilat-test-server/models"
 )
 
 type Server struct {

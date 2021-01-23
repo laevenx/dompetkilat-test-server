@@ -1,4 +1,4 @@
-module github.com/laevenx/golang-crud-sql
+module github.com/laevenx/dompetkilat-test-server
 
 go 1.15
 
