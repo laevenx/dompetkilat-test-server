@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/laevenx/golang-crud-sql/auth"
-	"github.com/laevenx/golang-crud-sql/responses"
+	"github.com/laevenx/dompetkilat-test-server/auth"
+	"github.com/laevenx/dompetkilat-test-server/responses"
 )
 
 func SetMiddlewareJSON(next http.HandlerFunc) http.HandlerFunc {

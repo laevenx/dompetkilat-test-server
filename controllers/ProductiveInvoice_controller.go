@@ -9,10 +9,10 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/laevenx/golang-crud-sql/auth"
-	"github.com/laevenx/golang-crud-sql/models"
-	"github.com/laevenx/golang-crud-sql/responses"
-	"github.com/laevenx/golang-crud-sql/utils"
+	"github.com/laevenx/dompetkilat-test-server/auth"
+	"github.com/laevenx/dompetkilat-test-server/models"
+	"github.com/laevenx/dompetkilat-test-server/responses"
+	"github.com/laevenx/dompetkilat-test-server/utils"
 )
 
 func (server *Server) CreateProductiveInvoice(w http.ResponseWriter, r *http.Request) {
@@ -39,10 +39,7 @@ func (server *Server) CreateProductiveInvoice(w http.ResponseWriter, r *http.Req
 		responses.ERROR(w, http.StatusUnauthorized, errors.New("Unauthorized"))
 		return
 	}
-	// if uid != post.ID {
-	// 	responses.ERROR(w, http.StatusUnauthorized, errors.New(http.StatusText(http.StatusUnauthorized)))
-	// 	return
-	// }
+
 	postCreated, err := post.SaveProductiveInvoice(server.DB)
 	if err != nil {
 		formattedError := utils.FormatError(err.Error())
@@ -109,11 +106,6 @@ func (server *Server) UpdateProductiveInvoice(w http.ResponseWriter, r *http.Req
 		return
 	}
 
-	// If a user attempt to update a post not belonging to him
-	// if uid != post.AuthorID {
-	// 	responses.ERROR(w, http.StatusUnauthorized, errors.New("Unauthorized"))
-	// 	return
-	// }
 	// Read the data posted
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
@@ -128,12 +120,6 @@ func (server *Server) UpdateProductiveInvoice(w http.ResponseWriter, r *http.Req
 		responses.ERROR(w, http.StatusUnprocessableEntity, err)
 		return
 	}
-
-	//Also check if the request user id is equal to the one gotten from token
-	// if uid != postUpdate.AuthorID {
-	// 	responses.ERROR(w, http.StatusUnauthorized, errors.New("Unauthorized"))
-	// 	return
-	// }
 
 	postUpdate.Prepare()
 	err = postUpdate.Validate()
@@ -180,11 +166,6 @@ func (server *Server) DeleteProductiveInvoice(w http.ResponseWriter, r *http.Req
 		return
 	}
 
-	// Is the authenticated user, the owner of this post?
-	// if uid != post.AuthorID {
-	// 	responses.ERROR(w, http.StatusUnauthorized, errors.New("Unauthorized"))
-	// 	return
-	// }
 	_, err = post.DeleteAProductiveInvoice(server.DB, pid, uid)
 	if err != nil {
 		responses.ERROR(w, http.StatusBadRequest, err)
