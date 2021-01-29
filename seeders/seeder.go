@@ -100,16 +100,16 @@ var sbn = []models.Sbn{
 }
 
 var finances = []models.Finance{
-	models.Finance{
-		Name:  "Invoice Financing",
-		Count: 35,
-		Sub:   "null",
-	},
-	models.Finance{
-		Name:  "OSF Financing",
-		Count: 25,
-		Sub:   "null",
-	},
+	// models.Finance{
+	// 	Name:  "Invoice Financing",
+	// 	Count: 35,
+	// 	Sub:   "null",
+	// },
+	// models.Finance{
+	// 	Name:  "OSF Financing",
+	// 	Count: 25,
+	// 	Sub:   "null",
+	// },
 	models.Finance{
 		Name:  "SBN",
 		Count: 10,
@@ -135,11 +135,11 @@ var finances = []models.Finance{
 		Count: 15,
 		Sub:   "osf",
 	},
-	models.Finance{
-		Name:  "Productive OSF",
-		Count: 10,
-		Sub:   "osf",
-	},
+	// models.Finance{
+	// 	Name:  "Productive OSF",
+	// 	Count: 10,
+	// 	Sub:   "osf",
+	// },
 }
 
 func Load(db *gorm.DB) {
